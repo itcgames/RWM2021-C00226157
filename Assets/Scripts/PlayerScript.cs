@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    private const float MAX_SPEED = 1.0f;
+    private const float MAX_SPEED = 0.10f;
     private Vector3 speed = new Vector2(0.0f, 0.0f);
-    private const float ACCELERATION = 0.1f;
+    private const float ACCELERATION = 0.01f;
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
@@ -16,21 +17,38 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        if(Input.GetKey(KeyCode.W))
         {
             speed = movePlayer(KeyCode.W);
         }
-        if(Input.GetKeyDown(KeyCode.A))
+        else if(Input.GetKey(KeyCode.A))
         {
             speed = movePlayer(KeyCode.A);
         }
-        if(Input.GetKeyDown(KeyCode.S))
+        else if(Input.GetKey(KeyCode.S))
         {
             speed = movePlayer(KeyCode.S);
         }
-        if(Input.GetKeyDown(KeyCode.D))
+        else if(Input.GetKey(KeyCode.D))
         {
             speed = movePlayer(KeyCode.D);
+        }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            playerShoot(new Vector3(0,0.1f));
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            playerShoot(new Vector3(0, -0.1f));
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            playerShoot(new Vector3(0.1f,0));
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            playerShoot(new Vector3(-0.1f,0));
         }
 
         transform.position += speed;
@@ -38,7 +56,7 @@ public class PlayerScript : MonoBehaviour
 
     public Vector3 movePlayer(KeyCode t_input)
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (t_input == KeyCode.W)
         {
             if (speed.y < MAX_SPEED)
             {
@@ -53,7 +71,7 @@ public class PlayerScript : MonoBehaviour
                 speed.x -= ACCELERATION;
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (t_input == KeyCode.A)
         {
             if (speed.x > -MAX_SPEED)
             {
@@ -68,7 +86,7 @@ public class PlayerScript : MonoBehaviour
                 speed.y -= ACCELERATION;
             }
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (t_input == KeyCode.S)
         {
             if (speed.y > -MAX_SPEED)
             {
@@ -83,7 +101,7 @@ public class PlayerScript : MonoBehaviour
                 speed.x -= ACCELERATION;
             }
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (t_input == KeyCode.D)
         {
             if (speed.x < MAX_SPEED)
             {
@@ -98,8 +116,12 @@ public class PlayerScript : MonoBehaviour
                 speed.y -= ACCELERATION;
             }
         }
-
-        transform.position += speed;
         return speed;
+    }
+
+    void playerShoot(Vector3 velocity)
+    {
+        GameObject tear = Instantiate(projectile, transform.position, Quaternion.identity);
+        tear.GetComponent<ProjectileScript>().setVelocity(velocity);
     }
 }

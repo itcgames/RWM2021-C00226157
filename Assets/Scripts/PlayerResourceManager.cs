@@ -8,7 +8,6 @@ public class PlayerResourceManager : MonoBehaviour
     private List<GameObject> Inventory;
     [SerializeField]
     private int coinCount;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Collectable")
@@ -18,8 +17,21 @@ public class PlayerResourceManager : MonoBehaviour
                 case "Coin":
                     coinCount++;
                     break;
-                case "Item":
+                case "SadOnion":
                     Inventory.Add(collision.gameObject);
+                    gameObject.GetComponent<PlayerScript>().powerUpSetTrue((int)powerups.SadOnion);
+                    break;
+                case "ToothPick":
+                    Inventory.Add(collision.gameObject);
+                    gameObject.GetComponent<PlayerScript>().powerUpSetTrue((int)powerups.ToothPick);
+                    break;
+                case "SoyMilk":
+                    Inventory.Add(collision.gameObject);
+                    gameObject.GetComponent<PlayerScript>().powerUpSetTrue((int)powerups.SoyMilk);
+                    break;
+                case "MothersKnife":
+                    Inventory.Add(collision.gameObject);
+                    gameObject.GetComponent<PlayerScript>().powerUpSetTrue((int)powerups.MothersKnife);
                     break;
                 default:
                     break;

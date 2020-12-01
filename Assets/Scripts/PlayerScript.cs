@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    private const float MAX_SPEED = 0.10f;
+    private const float MAX_SPEED = 0.1f;
     private Vector3 speed = new Vector2(0.0f, 0.0f);
-    private const float ACCELERATION = 0.01f;
+    private const float ACCELERATION = 0.001f;
     public GameObject projectile;
 
     // Start is called before the first frame update
@@ -32,6 +32,17 @@ public class PlayerScript : MonoBehaviour
         else if(Input.GetKey(KeyCode.D))
         {
             speed = movePlayer(KeyCode.D);
+        }
+        else
+        {
+            if(speed.x > 0)
+                speed.x -= ACCELERATION;
+            if (speed.y > 0)
+                speed.y -= ACCELERATION;
+            if (speed.x < 0)
+                speed.x += ACCELERATION;
+            if (speed.y < 0)
+                speed.y += ACCELERATION;
         }
 
         if(Input.GetKeyDown(KeyCode.UpArrow))

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Projecctile
   - Enemy
+  - Collectable
   layers:
   - Default
   - TransparentFX

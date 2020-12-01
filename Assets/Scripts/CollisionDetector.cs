@@ -6,8 +6,8 @@ public class CollisionDetector : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Triggered");
         
+        if(collision.tag == "Enemy")
         Destroy(collision.gameObject);
         
     }

@@ -112,26 +112,8 @@ public class PlayerScript : MonoBehaviour
 
     void playerShoot(Vector3 velocity)
     {
-        projectileDelay = 1;
-
         GameObject tear = Instantiate(projectile, transform.position, Quaternion.identity);
-        if (powerUpsActive[(int)powerups.SadOnion])
-            projectileDelay -= 0.2f;
-        if (powerUpsActive[(int)powerups.ToothPick])
-        {
-            projectileDelay -= 0.2f;
-            tear.GetComponent<ProjectileScript>().setProjectileSpeed(1.2f);
-        }
-        if (powerUpsActive[(int)powerups.SoyMilk])
-        {
-            projectileDelay -= 0.5f;
-            tear.GetComponent<ProjectileScript>().setProjectileDmg(0.2f);
-        }
-        if(powerUpsActive[(int)powerups.MothersKnife])
-        {
-            tear.GetComponent<ProjectileScript>().setProjectileDmg(2.0f);
-        }
-
+        powerUpsActivated(tear);
         tear.GetComponent<ProjectileScript>().setVelocity(velocity);
     }
 
@@ -190,5 +172,27 @@ public class PlayerScript : MonoBehaviour
     public void powerUpSetTrue(int powerUp)
     {
         powerUpsActive[powerUp] = true;
+    }
+
+    private void powerUpsActivated(GameObject t_tear)
+    {
+        projectileDelay = 1;
+
+        if (powerUpsActive[(int)powerups.SadOnion])
+            projectileDelay -= 0.2f;
+        if (powerUpsActive[(int)powerups.ToothPick])
+        {
+            projectileDelay -= 0.2f;
+            t_tear.GetComponent<ProjectileScript>().setProjectileSpeed(1.2f);
+        }
+        if (powerUpsActive[(int)powerups.SoyMilk])
+        {
+            projectileDelay -= 0.5f;
+            t_tear.GetComponent<ProjectileScript>().setProjectileDmg(0.2f);
+        }
+        if (powerUpsActive[(int)powerups.MothersKnife])
+        {
+            t_tear.GetComponent<ProjectileScript>().setProjectileDmg(2.0f);
+        }
     }
 }

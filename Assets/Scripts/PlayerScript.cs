@@ -23,8 +23,12 @@ public class PlayerScript : MonoBehaviour
     private const float ACCELERATION = 0.001f;
     private float projectileTimer = 0.0f;
     private float projectileDelay = 1.0f;
+    [SerializeField]
+    private float playerHealth = 3.0f;
+    private float MAX_HEARTS = 3.0f;
 
     private bool[] powerUpsActive = new bool[10];
+
     public GameObject projectile;
 
     // Start is called before the first frame update
@@ -193,6 +197,22 @@ public class PlayerScript : MonoBehaviour
         if (powerUpsActive[(int)powerups.MothersKnife])
         {
             t_tear.GetComponent<ProjectileScript>().setProjectileDmg(2.0f);
+        }
+    }
+
+    public void increasePlayerHealth()
+    {
+        if(playerHealth < MAX_HEARTS)
+        {
+            playerHealth++;
+        }
+    }
+
+    public void decreaseHealth()
+    {
+        if(playerHealth > 0)
+        {
+            playerHealth--;
         }
     }
 }

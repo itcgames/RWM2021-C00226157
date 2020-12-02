@@ -8,6 +8,8 @@ public class PlayerResourceManager : MonoBehaviour
     private List<GameObject> Inventory;
     [SerializeField]
     private int coinCount;
+    [SerializeField]
+    private int bombCount;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Collectable")
@@ -16,6 +18,12 @@ public class PlayerResourceManager : MonoBehaviour
             {
                 case "Coin":
                     coinCount++;
+                    break;
+                case "Bomb":
+                    bombCount++;
+                    break;
+                case "Heart":
+                    gameObject.GetComponent<PlayerScript>().increasePlayerHealth();
                     break;
                 case "SadOnion":
                     Inventory.Add(collision.gameObject);

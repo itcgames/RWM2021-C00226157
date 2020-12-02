@@ -29,7 +29,7 @@ public class ProjectileScript : MonoBehaviour
 
     public void setProjectileDmg(float t_dmg)
     {
-        if (damage! <= 0.1)
+        if (damage >= 0.1)
         {
             damage = damage * t_dmg;
         }
@@ -37,7 +37,7 @@ public class ProjectileScript : MonoBehaviour
 
     public void setProjectileSpeed(float t_speed)
     {
-        if (speed! <= 0.1)
+        if (speed >= 0.1)
         {
             speed = t_speed;
         }

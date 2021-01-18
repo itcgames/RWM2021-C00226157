@@ -5,9 +5,9 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour
 {
     [SerializeField]
-    private Vector3 velocity = new Vector3 (0,0);
+    private Vector3 velocity = new Vector3(0, 0);
     [SerializeField]
-    private float speed = 1.0f;
+    private float speed = 0.005f;
     [SerializeField]
     private float damage = 1.0f;
 
@@ -40,6 +40,13 @@ public class ProjectileScript : MonoBehaviour
         if (speed >= 0.1)
         {
             speed = t_speed;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            Destroy(this.gameObject);
         }
     }
 }

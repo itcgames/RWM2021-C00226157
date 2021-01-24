@@ -26,9 +26,6 @@ public class PlayerResourceManager : MonoBehaviour
                 case "Bomb":
                     bombCount++;
                     break;
-                case "Heart":
-                    gameObject.GetComponent<PlayerScript>().increasePlayerHealth();
-                    break;
                 case "SadOnion":
                     Inventory.Add(collision.gameObject);
                     gameObject.GetComponent<PlayerScript>().powerUpSetTrue((int)powerups.SadOnion);
@@ -50,7 +47,6 @@ public class PlayerResourceManager : MonoBehaviour
                     break;
 
             }
-            hudInven.GetComponent<HudInventory>().setItems(getInventory());
             collision.gameObject.SetActive(false);
         }
     }
@@ -64,6 +60,11 @@ public class PlayerResourceManager : MonoBehaviour
     {
 
         return coinCount;
+    }
+
+    public void setCoinCount(int t_coin)
+    {
+        coinCount = t_coin;
     }
 
     public int getBombCount()

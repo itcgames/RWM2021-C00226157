@@ -1080,6 +1080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed6fb4dcb633e7448ccca312ec8aec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: 1
+  MAX_HEARTS: 3
+  playerBlackHealth: 3
+  MAX_BLACK_HEARTS: 3
+  powerUpsActive: 00000000000000000000
   projectile: {fileID: 6865760633868061122, guid: d20de2f780cf3e348ad1144951cee68f,
     type: 3}
 --- !u!114 &1199898472
@@ -1097,6 +1102,76 @@ MonoBehaviour:
   Inventory: []
   coinCount: 0
   bombCount: 0
+  hudInven: {fileID: 0}
+--- !u!1001 &1317004059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030329, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 640443124503030334, guid: ec092a300480796468f141328e7b0010,
+        type: 3}
+      propertyPath: m_Name
+      value: ShopRoomLayout
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec092a300480796468f141328e7b0010, type: 3}
 --- !u!1001 &1517298847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1169,9 +1244,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7335276229461453574, guid: c4a8fcc78cb075e4e927831afe7c9671, type: 3}
-    - {fileID: 6115274048992379055, guid: c4a8fcc78cb075e4e927831afe7c9671, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a8fcc78cb075e4e927831afe7c9671, type: 3}
 --- !u!1 &1545703580
 GameObject:
